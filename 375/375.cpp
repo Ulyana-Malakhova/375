@@ -24,6 +24,9 @@ bool con(Telephone* p1, Telephone* p2) {
 	else
 		return false;
 }
+bool cond(Telephone* p1) {
+	return ((*p1).getYear() >= 2014 && (*p1).getYear() <= 2023);
+}
 
 int main()
 {
@@ -96,6 +99,15 @@ int main()
 	sort(vect.begin(), vect.end(), con);
 	for (ir = vect.begin(); ir != vect.end(); ++ir) {
 		(*ir)->display();
+	}
+	cout << "Хотите найти телефоны, выпущенные за последние 10 лет?1-да,любая другая цифра-нет" << endl;
+	int fp;
+	cin >> fp;
+	if (fp == 1) {
+		vector<Telephone*>::iterator ia;
+		ia = find_if(vect.begin(), vect.end(), cond);
+		if (ia != vect.end())
+			(*ia)->display();
 	}
 	int h, c = 0;
 	while (c == 0) {
