@@ -26,6 +26,7 @@ public:
 	static int number;
 	static void number_phone();
 	void read();
+	virtual void display();
 	void zaryad();
 	void change();
 	int* energy_saving(int s);
@@ -52,6 +53,7 @@ private:
 public:
 	Touch_phone(Current_state current_state, Dimensions dimensions, System_t system_t, Screen screen, General_data general_data, Touch touch);
 	void read1();
+	void display();
 	friend void operator <<(ostream& o, Touch_phone p);
 	int* energy_saving(int s, int a);
 	void camera_pixels();

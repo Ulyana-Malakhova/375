@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <locale.h>
 #include <string>
+#include <vector>
 #include "Current_state.h"
 #include "Dimensions.h"
 #include "System_t.h"
@@ -31,8 +32,6 @@ int main()
 	spisok5->read();
 	Touch_phone* phone5 = new Touch_phone(current_state, dimensions, system_t, screen, general_data, touch);
 	*phone5 = *spisok5;
-	//phone5->display();
-	//phone5->display1();
 	cout << *phone5;
 	int d, p, t, n, c1, z, f;
 	cout << "Вызов виртуальной функции через динамические объекты базового и производного классов после присваивания указателя. Хотите выполнить проверку? 1-да,любая другая клавиша-нет" << endl;
@@ -66,7 +65,26 @@ int main()
 			cout << "Название модели - " << Model.search(m);
 		}
 	}
-
+	cout << "Создадим контейнер с объектами" << endl;
+	vector<Telephone*> vect;
+	Telephone* spisok7;
+	spisok7 = new Telephone(current_state, dimensions, system_t, screen, general_data);
+	Touch_phone* phone7;
+	phone7 = new Touch_phone(current_state, dimensions, system_t, screen, general_data, touch);
+	int v1 = 1;
+	while (v1 == 1) {
+		spisok7->read();
+		phone7->read();
+		phone7->read1();
+		vect.push_back(spisok7);
+		vect.push_back(phone7);
+		cout << "Хотите добавить еще данные?1-да,любая другая цифра-нет";
+		cin >> v1;
+	}
+	vector<Telephone*>::iterator ir;
+	for (ir = vect.begin(); ir != vect.end(); ++ir) {
+		(*ir)->display();
+	}
 	int h, c = 0;
 	while (c == 0) {
 		c = 1;

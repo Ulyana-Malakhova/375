@@ -33,14 +33,14 @@ void Telephone::read() {
 }
 void Telephone::number_phone() {
 	cout << "Количество телефонов - " << number << endl;
-}/*
+}
 void Telephone::display() {
-	current_state.display();
-	dimensions.display();
-	system_t.display();
-	screen.display();
-	general_data.display();
-}*/
+	cout << current_state;
+	cout << dimensions;
+	cout << system_t;
+	cout << screen;
+	cout << general_data;
+}
 void operator <<(ostream& o, Telephone p) {
 	cout << p.current_state;
 	cout << p.dimensions;
@@ -245,6 +245,14 @@ Touch_phone::Touch_phone(Current_state current_state, Dimensions dimensions, Sys
 }
 void Touch_phone::read1() {
 	touch.read();
+}
+void Touch_phone::display() {
+	cout << current_state;
+	cout << dimensions;
+	cout << system_t;
+	cout << screen;
+	cout << general_data;
+	cout << touch;
 }
 void operator <<(ostream& o, Touch_phone p) {
 	cout << p.current_state;
