@@ -8,6 +8,7 @@
 #include <locale.h>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "Current_state.h"
 #include "Dimensions.h"
 #include "System_t.h"
@@ -17,6 +18,12 @@
 #include "Telephone.h"
 #include "Names.h"
 using namespace std;
+bool con(Telephone* p1, Telephone* p2) {
+	if ((*p1).getYear() < (*p2).getYear())
+		return true;
+	else
+		return false;
+}
 
 int main()
 {
@@ -82,6 +89,11 @@ int main()
 		cin >> v1;
 	}
 	vector<Telephone*>::iterator ir;
+	for (ir = vect.begin(); ir != vect.end(); ++ir) {
+		(*ir)->display();
+	}
+	cout << "Отсортируем контейнер по году выпуска телефона" << endl;
+	sort(vect.begin(), vect.end(), con);
 	for (ir = vect.begin(); ir != vect.end(); ++ir) {
 		(*ir)->display();
 	}

@@ -37,6 +37,7 @@ public:
 	Current_state getCurrent_state();
 	General_data getGeneral_data();
 	System_t getSystem_t();
+	int getYear();
 	void setCurrent_state(Current_state current_state);
 	friend void operator <<(ostream& o, Telephone p);
 	friend int screen_percentage(Telephone spisok);

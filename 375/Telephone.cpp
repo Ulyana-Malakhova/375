@@ -236,6 +236,9 @@ int& Telephone::check_memory(int s) {
 void Telephone::setCurrent_state(Current_state current_state) {
 	this->current_state = current_state;
 }
+int Telephone::getYear() {
+	return general_data.getYear();
+}
 void Telephone::setCallsCurrent_state(Current_state current_state1) {
 	int c = current_state1.getCalls();
 	current_state.setCalls(c);
